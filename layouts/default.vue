@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <Navbar />
-    <Nuxt />
+  <div class="page_wrapper">
+    <div class="container">
+      <Navbar />
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -17,3 +19,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.page_wrapper {
+  position: relative;
+}
+</style>

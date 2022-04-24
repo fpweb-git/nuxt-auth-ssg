@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home_wrapper">
     <main>
       <h1>Nuxt Auth</h1>
     </main>
@@ -108,6 +108,8 @@
         <li>User logout</li>
       </ul>
     </section>
+    <!-- spaceman -->
+    <img class="spaceman" src="~/static/img/spaceman.png" alt="" />
   </div>
 </template>
 
@@ -117,5 +119,13 @@ main {
 }
 li svg {
   margin-right: 0.3rem;
+}
+.home_wrapper {
+  position: relative;
+}
+.spaceman {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 </style>
