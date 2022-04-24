@@ -24,8 +24,15 @@
         </NuxtLink>
       </li>
     </ul>
-    <ul>
-      <li><NuxtLink to="/app/dashboard">Dashboard</NuxtLink></li>
+    <ul v-if="isLoggedIn">
+      <li>
+        <NuxtLink to="/app/dashboard">Dashboard</NuxtLink>
+      </li>
+      <li>
+        <button @click="Logout()" class="secondary outline">Logout</button>
+      </li>
+    </ul>
+    <ul v-else>
       <li><NuxtLink to="/auth/register">Sign up</NuxtLink></li>
       <li>
         <NuxtLink to="/auth/login"><button>Login</button></NuxtLink>
@@ -33,3 +40,18 @@
     </ul>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.authenticated;
+    },
+  },
+  methods: {
+    Logout() {
+      this.$store.dispatch("logout");
+    },
+  },
+};
+</script>

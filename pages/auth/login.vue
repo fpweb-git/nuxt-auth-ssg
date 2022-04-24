@@ -3,12 +3,24 @@
     <div class="grid">
       <label for="username">
         Username
-        <input type="text" id="username" name="username" required />
+        <input
+          v-model="username"
+          type="text"
+          id="username"
+          name="username"
+          required
+        />
       </label>
     </div>
 
     <label for="password"> Password </label>
-    <input type="password" id="password" name="password" required />
+    <input
+      v-model="password"
+      type="password"
+      id="password"
+      name="password"
+      required
+    />
     <small
       >Login with strapi
       <svg
@@ -35,9 +47,28 @@
       </svg>
     </small>
 
-    <button type="submit">Login</button>
+    <button type="submit" @click.prevent="Login()">Login</button>
   </form>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    async Login() {
+      this.$store.dispatch("login", {
+        identifier: this.username,
+        password: this.password,
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 form {

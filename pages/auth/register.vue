@@ -41,7 +41,7 @@
       </svg>
     </small>
 
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
   </form>
 </template>
 

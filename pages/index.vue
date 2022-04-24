@@ -101,20 +101,15 @@
     <section>
       <h2>Todo:</h2>
       <ul>
-        <li>Global auth state</li>
-        <li>Update navbar and protect login and signup routes</li>
+        <li>Secure more and error handling login</li>
+        <li>Store token in localstorage or cookie</li>
+        <li>protect login and signup routes</li>
         <li>User register</li>
         <li>User logout</li>
       </ul>
     </section>
   </div>
 </template>
-
-<script>
-export default {
-  // name: "IndexPage",
-};
-</script>
 
 <style scoped>
 main {
