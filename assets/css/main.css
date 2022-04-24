@@ -1,0 +1,21 @@
+html {
+    min-height: 100vh;
+    background: rgb(1, 42, 53);
+    background: linear-gradient(148deg, rgba(1, 42, 53, 1) 0%, rgba(1, 79, 99, 1) 50%, rgba(92, 141, 156, 1) 100%);
+}
+
+body {
+    position: relative;
+}
+
+input {
+    background-color: rgba(35, 43, 59, 1);
+}
+
+
+:root {
+    --primary: #00dc82 !important;
+    --primary-hover: #00b66a !important;
+    --primary-focus: #012a35 !important;
+    --primary-inverse: rgba(0, 0, 0, 0.75) !important;
+}
