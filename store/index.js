@@ -1,16 +1,23 @@
 export const state = () => ({
-    authenticated: false,
-    currentUser: {}
+    authenticated: localStorage.getItem('userSession') ? true : false,
+    currentUser: null || JSON.parse(localStorage.getItem('userSession'))
+
 })
 
 export const mutations = {
-    logState(state, json) {
+    // logState(state, data) {
+    //     state.authenticated = true;
+    //     state.currentUser = data
+    // },
+    login(state, data) {
         state.authenticated = true;
-        state.currentUser = json.user
+        state.currentUser = data
+        localStorage.setItem('userSession', JSON.stringify(data))
     },
     logout(state) {
         state.authenticated = false
         state.currentUser = {}
+        localStorage.removeItem('userSession')
     }
 }
 
@@ -29,9 +36,9 @@ export const actions = {
             console.log(res)
         } else {
             try {
-                const json = await res.json()
-                context.commit("logState", json);
-                console.log(json)
+                const data = await res.json()
+                context.commit("login", data);
+                console.log(data)
                 $nuxt.$router.push('/app/dashboard')
             } catch (err) {
                 console.log(err)
@@ -41,6 +48,7 @@ export const actions = {
 
     },
     logout(context) {
+        $nuxt.$router.push('/auth/login')
         context.commit("logout");
         $nuxt.$router.push('/')
     }

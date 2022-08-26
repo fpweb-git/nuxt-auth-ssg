@@ -2,6 +2,7 @@
   <div class="page_wrapper">
     <div class="container">
       <Navbar />
+      <!-- <Modal @close="showModal = false" :show="showModal" /> -->
       <Nuxt />
     </div>
   </div>
@@ -13,9 +14,15 @@ export default {
     isLoggedIn() {
       return this.$store.state.authenticated;
     },
+    currentUser() {
+      return this.$store.state.currentUser;
+    },
   },
   mounted() {
-    console.log(this.isLoggedIn);
+    this.isLoggedIn
+      ? console.log("user connected")
+      : console.log("user not connected");
+    this.currentUser ? console.log(this.currentUser.jwt) : "";
   },
 };
 </script>

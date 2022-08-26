@@ -6,6 +6,7 @@
 
     <section>
       <h2>Actual stack:</h2>
+      <!-- <button @click="openModal">open</button> -->
       <ul>
         <li>
           <svg
@@ -102,16 +103,25 @@
       <h2>Todo:</h2>
       <ul>
         <li>Secure more and error handling login</li>
-        <li>Store token in localstorage or cookie</li>
         <li>protect login and signup routes</li>
         <li>User register</li>
-        <li>User logout</li>
       </ul>
     </section>
     <!-- spaceman -->
     <img class="spaceman" src="~/static/img/spaceman.png" alt="" />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    openModal() {
+      this.$emit("open-modal");
+      console.log("ok");
+    },
+  },
+};
+</script>
 
 <style scoped>
 main {
@@ -127,5 +137,10 @@ li svg {
   position: absolute;
   right: 0;
   top: 0;
+}
+@media screen and (max-width: 767px) {
+  .spaceman {
+    display: none;
+  }
 }
 </style>
