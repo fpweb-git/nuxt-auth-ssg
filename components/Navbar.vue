@@ -29,7 +29,7 @@
         <NuxtLink to="/app/dashboard">Dashboard</NuxtLink>
       </li>
       <li>
-        <button @click="Logout()" class="secondary outline">Logout</button>
+        <button @click="Logout()" class="outline">Logout</button>
       </li>
     </ul>
     <ul v-else>

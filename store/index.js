@@ -1,14 +1,10 @@
 export const state = () => ({
     authenticated: localStorage.getItem('userSession') ? true : false,
-    currentUser: null || JSON.parse(localStorage.getItem('userSession'))
-
+    currentUser: null || JSON.parse(localStorage.getItem('userSession')),
+    userRole: ""
 })
 
 export const mutations = {
-    // logState(state, data) {
-    //     state.authenticated = true;
-    //     state.currentUser = data
-    // },
     login(state, data) {
         state.authenticated = true;
         state.currentUser = data
@@ -23,7 +19,7 @@ export const mutations = {
 
 export const actions = {
     async login(context, credentials) {
-        const url = "http://localhost:1337/api/auth/local";
+        const url = "http://localhost:1337/api/auth/local?populate=*";
         const res = await fetch(url, {
             method: "POST",
             body: JSON.stringify(credentials),
